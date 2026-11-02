@@ -1,0 +1,56 @@
+{
+    "name": "crm.vk-workspace",
+    "version": "1.0.5",
+    "vendor": "crm",
+    "author": "Anton Barinov",
+    "author_url": "https://github.com/Anton-Barinov",
+    "title": "VK WorkSpace — прототип (функции недоступны)",
+    "description": "Нерабочий прототип. Создание видеовстреч, календарная синхронизация, VK Teams, почта и диск недоступны. Пакет не подключается к VK WorkSpace и не создаёт внешние встречи, ссылки или фиктивные идентификаторы.",
+    "core_version": ">=1.0.0",
+    "license": "MIT",
+    "category": "integration",
+    "dependencies": [],
+    "require_permissions": [
+        "settings.view",
+        "settings.edit",
+        "calendar.view",
+        "calendar.edit"
+    ],
+    "service_provider": "Module\\Crm\\VkWorkspace\\VkWorkspaceServiceProvider",
+    "migrations": "api/migrations",
+    "api_routes": "api/config/routes.php",
+    "web_routes": "web/config/routes.php",
+    "menu_items": [
+        {
+            "id": "vk-workspace",
+            "title": "VK WorkSpace (прототип)",
+            "route": "vk-workspace",
+            "icon": "video",
+            "permission": "calendar.view"
+        }
+    ],
+    "assets": {
+        "css": [
+            "web/assets/css/vk-workspace.css"
+        ],
+        "js_routes": []
+    },
+    "mcp_tools": [
+        {
+            "name": "vk_workspace_status",
+            "description": "Проверить состояние бета-заготовки VK WorkSpace. Подключение к API пока недоступно.",
+            "handler": "Module\\Crm\\VkWorkspace\\Mcp\\VkStatusTool",
+            "permissions": [
+                "calendar.view"
+            ],
+            "mode": "all",
+            "workspace_required": true,
+            "input_schema": {
+                "type": "object",
+                "properties": [],
+                "additionalProperties": false
+            }
+        }
+    ],
+    "signature": "2b7ede28f54d73cf05ff34e85e5d3099e9e6f0bb7b72d87a1a2dd13be2eb3ba7"
+}
